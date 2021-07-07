@@ -10,6 +10,10 @@ import com.wahkee.fruitStore.models.order.Order;
 
 @Repository
 public interface OrderRepository  extends JpaRepository<Order, Integer> {
-    List<Order> findAllByUserIdOrderByCreatedDateDesc(Integer userId);
-    List<Order> findAllByUserIdAndStatus(Long userId,EOrderStatus status);
+   
+    List<Order> findAllByUserIdAndStatus(Long userId,EOrderStatus status);//may be useless because of clear db
+    List<Order> findAllByUserIdOrderByCreatedDateDesc(Integer userId);//may be useless because of clear db
+  
+//    List<Order> findAllByEmailOrderByCreatedDateDesc(Integer userId);
+//    List<Order> findAllByEmailAndStatus(String email,EOrderStatus status);
 }

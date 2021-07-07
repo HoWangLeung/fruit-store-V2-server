@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.wahkee.fruitStore.models.User;
@@ -15,6 +16,7 @@ import com.wahkee.fruitStore.models.order.Order;
 import com.wahkee.fruitStore.models.order.OrderItem;
 import com.wahkee.fruitStore.models.product.Product;
 import com.wahkee.fruitStore.payload.request.order.OrderRequest;
+import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.repository.order.OrderRepository;
 
 @Service
@@ -29,6 +31,10 @@ public class OrderService {
 
 	@Autowired
 	OrderItemsService orderItemsService;
+	
+	@Autowired
+	private UserRepository userRepository;
+ 
 
 	public List<Order> getOrderById(int user_id) {
 		List<Order> orderList = orderRepository.findAllByUserIdOrderByCreatedDateDesc(user_id);
@@ -42,8 +48,11 @@ public class OrderService {
 
 	public void addOrder(OrderRequest orderRequest) {
 		sum = 0;
-		User user = em.find(User.class, 1L);
-		List<Order> existingPendingOrder = orderRepository.findAllByUserIdAndStatus(1L, EOrderStatus.PENDING);
+ 	User user = userRepository.findByEmail("hkz88i00123@gmail.com")
+ 			.orElseThrow(() -> new UsernameNotFoundException("User Not Found with email:  =>>>>>" ));
+ 			
+ 			
+		List<Order> existingPendingOrder = orderRepository.findAllByUserIdAndStatus(user.getId(), EOrderStatus.PENDING);
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
 		if (existingPendingOrder.size() == 1) {

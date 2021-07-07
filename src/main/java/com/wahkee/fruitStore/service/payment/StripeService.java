@@ -1,19 +1,20 @@
 package com.wahkee.fruitStore.service.payment;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.stripe.Stripe;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
+import com.wahkee.fruitStore.models.User;
 import com.wahkee.fruitStore.models.order.EOrderStatus;
 import com.wahkee.fruitStore.models.order.Order;
+import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.repository.order.OrderRepository;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
 
@@ -25,6 +26,8 @@ public class StripeService {
 	}
 	@Autowired
 	OrderRepository orderRepository;
+	@Autowired
+	UserRepository userRepository;
 	
 
 	public Customer createCustomer(String token, String email) throws Exception {
@@ -45,8 +48,10 @@ public class StripeService {
 		chargeParams.put("source", token);
 		Charge charge = Charge.create(chargeParams);
 		UserDetailsImpl userDetail = ((UserDetailsImpl)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-		System.out.println("USER DETAIL " + userDetail.getId());
-		Order order = orderRepository.findAllByUserIdAndStatus(userDetail.getId(), EOrderStatus.PENDING).get(0);
+//		System.out.println("USER DETAIL " + userDetail.getId());
+		User user = userRepository.findByEmail(userDetail.getEmail())
+				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with email:  =>>>>>" ));
+		Order order = orderRepository.findAllByUserIdAndStatus(user.getId(), EOrderStatus.PENDING).get(0);
 		
 		order.setRefId(charge.getId());
 		order.setStatus(EOrderStatus.PAID);
