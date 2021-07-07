@@ -69,19 +69,25 @@ public class OrderService {
 			// ===================================================================
 			// IF USER DOES NOT HAVE EXISTING ORDER, THEN CREATE NEW
 			// ====================================================================
-
+			System.out.println("==================CREATING NEW ORDER=========================");
 			Order newOrder = new Order();
 			newOrder.setUser(user);
 			newOrder.setStatus(EOrderStatus.PENDING);
-			newOrder.setOrderItems(orderItems);
+	
 			newOrder.setCreatedDate(new Date());
+	 
 			orderRequest.getOrderItems().stream().forEach(e -> {
 				sum += e.getTotal();
 				Product product = em.find(Product.class, e.getProductId());
+			
 				OrderItem orderItem = new OrderItem(e.getQuantity(), e.getPrice(), new Date(), product);
 				orderItem.setOrder(newOrder);
-				orderItems.add(orderItem);
+				orderItem.setProduct(product);
+				System.out.println("WHIT IS THIS PRODUCT = " + orderItem.getProduct().getName() );
+//				System.out.println();
+				orderItems.add(orderItem); 
 			});
+			newOrder.setOrderItems(orderItems);
 			newOrder.setFinalTotal(sum);
 			orderRepository.save(newOrder);
 		}

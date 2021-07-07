@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.wahkee.fruitStore.models.product.Product;
 
 @Entity
@@ -36,7 +37,7 @@ public class OrderItem {
     private Order order;
 
     @OneToOne
-    @JoinColumn(name = "product_id",insertable = false, updatable = false)
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public OrderItem(){}
@@ -82,7 +83,7 @@ public class OrderItem {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-
+@JsonBackReference
 	public Order getOrder() {
 		return order;
 	}

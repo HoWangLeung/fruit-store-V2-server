@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.wahkee.fruitStore.models.User;
 
 @Entity
@@ -23,6 +24,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    private String refId;
     
     private double finalTotal;
 
@@ -63,6 +66,14 @@ public class Order {
 	
 	
 
+	public String getRefId() {
+		return refId;
+	}
+
+	public void setRefId(String refId) {
+		this.refId = refId;
+	}
+
 	public double getFinalTotal() {
 		return finalTotal;
 	}
@@ -86,7 +97,7 @@ public class Order {
 	public void setStatus(EOrderStatus status) {
 		this.status = status;
 	}
-
+@JsonManagedReference
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}
