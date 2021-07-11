@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -67,6 +68,9 @@ public class AuthController {
 	
 	@Autowired 
 	UserService userService;
+	
+	   @Autowired
+	   private Environment env;
 	
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
@@ -162,10 +166,10 @@ public class AuthController {
 	    if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
 	        System.out.println("EXCEEDED TIMEOUT ERROR");
 	    } 
-	    
+	    String clientUrl = env.getProperty("baseUrl");
 	    user.setEnabled(true); 
 	    userRepository.save(user);
-	    redirectStrategy.sendRedirect(request, response, "http://localhost:3000");
+	    redirectStrategy.sendRedirect(request, response, clientUrl);
 	    return "VERIFED";
 	}
 	
