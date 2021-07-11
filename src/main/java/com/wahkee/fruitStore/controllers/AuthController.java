@@ -1,10 +1,14 @@
 package com.wahkee.fruitStore.controllers;
 
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +18,20 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wahkee.fruitStore.models.ERole;
 import com.wahkee.fruitStore.models.Role;
 import com.wahkee.fruitStore.models.User;
+import com.wahkee.fruitStore.models.auth.VerificationToken;
 import com.wahkee.fruitStore.payload.request.LoginRequest;
 import com.wahkee.fruitStore.payload.request.SignupRequest;
 import com.wahkee.fruitStore.payload.response.JwtResponse;
@@ -31,6 +40,8 @@ import com.wahkee.fruitStore.repository.RoleRepository;
 import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.security.jwt.JwtUtils;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
+import com.wahkee.fruitStore.service.email.EmailServiceImpl;
+import com.wahkee.fruitStore.service.user.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -50,6 +61,14 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+	 
+	@Autowired 
+	EmailServiceImpl emailServiceImpl;
+	
+	@Autowired 
+	UserService userService;
+	
+	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -75,23 +94,21 @@ public class AuthController {
 	}
 
 	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-//		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-//			return ResponseEntity
-//					.badRequest()
-//					.body(new MessageResponse("Error: Username is already taken!"));
-//		}
-
+	public ResponseEntity<?> registerUser(HttpServletRequest request,@Valid @RequestBody SignupRequest signUpRequest, @RequestParam("exchangeName") String exchange, @RequestParam("routingKey") String routingKey) {
+		String appUrl = request.getContextPath();
+		
+		System.out.println("APP URL " + appUrl);
+		
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
 		}
 
 		// Create new user's account
 		User user = new User(
-//				signUpRequest.getUsername(), 
 				signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
 
 		Set<String> strRoles = signUpRequest.getRole();
+ 
 		Set<Role> roles = new HashSet<>();
 
 		if (strRoles == null) {
@@ -123,7 +140,33 @@ public class AuthController {
 
 		user.setRoles(roles);
 		userRepository.save(user);
+		emailServiceImpl.sendEmail(exchange, routingKey,user);
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
+	
+	@GetMapping("/regitrationConfirm")
+	public String confirmRegistration
+	  (HttpServletRequest request,HttpServletResponse response ,  @RequestParam("token") String token) throws IOException {
+		System.out.println("TOKEN RECEIVED  = " + token );
+	 System.out.println("getting /regitrationConfirm");
+	 System.out.println("WEB REQUEST " + request);
+	    
+	    VerificationToken verificationToken = userService.getVerificationToken(token);
+	    if (verificationToken == null) {
+	       System.out.println("NO TOKEN IN DB , ERROR");
+	    }
+	    
+	    User user = verificationToken.getUser();
+	    Calendar cal = Calendar.getInstance();
+	    if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
+	        System.out.println("EXCEEDED TIMEOUT ERROR");
+	    } 
+	    
+	    user.setEnabled(true); 
+	    userRepository.save(user);
+	    redirectStrategy.sendRedirect(request, response, "http://localhost:3000");
+	    return "VERIFED";
+	}
+	
 }
