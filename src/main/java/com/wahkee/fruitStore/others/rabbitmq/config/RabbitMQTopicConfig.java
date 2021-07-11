@@ -4,6 +4,7 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.MessageListenerContainer;
@@ -66,6 +67,15 @@ public class RabbitMQTopicConfig {
 	public MessageConverter jsonMessageConverter() {
 		return new Jackson2JsonMessageConverter();
 	}
+	
+//	@Bean
+//	public ConnectionFactory connectionFactory() {
+//	    CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
+//	    connectionFactory.setAddresses("toad.rmq.cloudamqp.com");
+//	    connectionFactory.setUsername("ctulzhhh");
+//	    connectionFactory.setPassword("ctulzhhh:P1QWlg1PblGaCiUgwwdiEzVFYNtylxVe");
+//	    return connectionFactory;
+//	}
 
 	@Bean
 	MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory) {
@@ -73,6 +83,7 @@ public class RabbitMQTopicConfig {
 		simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
 		return simpleMessageListenerContainer;
 	}
+ 
 
 	public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
