@@ -166,7 +166,7 @@ public class AuthController {
 	    if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
 	        System.out.println("EXCEEDED TIMEOUT ERROR");
 	    } 
-	    String clientUrl = env.getProperty("baseUrl");
+	    String clientUrl = env.getProperty("clientUrl");
 	    user.setEnabled(true); 
 	    userRepository.save(user);
 	    redirectStrategy.sendRedirect(request, response, clientUrl);
