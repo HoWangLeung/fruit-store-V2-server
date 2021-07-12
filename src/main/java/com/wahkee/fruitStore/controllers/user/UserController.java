@@ -29,7 +29,7 @@ public class UserController {
 		UserDetailsImpl userDetail = ((UserDetailsImpl)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		
 		User user = userRepository.findByUsername(userDetail.getUsername())
-				.orElseThrow(() -> new RuntimeException("Error: User is not found."));
+				.orElseThrow(() -> new RuntimeException("Error: User is not found !"));
 		
 		 
 		return ResponseEntity.ok(userDetail);
