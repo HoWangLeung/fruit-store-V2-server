@@ -38,9 +38,9 @@ public class OrderController {
 	@GetMapping("/order")
 	public ResponseEntity<?> getOneOrder() {
 		UserDetailsImpl userDetail = ((UserDetailsImpl)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-	System.out.println("GET EMAIL = "+ 	userDetail.getEmail());
+	System.out.println("GET EMAIL = "+ 	userDetail.getEmail() + " id = " + userDetail.getId());
 	List<Order> paidOrders = orderRepository.findAllByUserIdAndStatus(userDetail.getId(), EOrderStatus.PAID);
-	System.out.println(paidOrders.get(0).getRefId());
+	System.out.println(paidOrders);
 		 
 		return ResponseEntity.ok(paidOrders);
 	}

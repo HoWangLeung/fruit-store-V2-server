@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wahkee.fruitStore.models.product.Product;
 import com.wahkee.fruitStore.repository.product.ProductRepository;
+import com.wahkee.fruitStore.service.product.ProductService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -18,12 +19,12 @@ import com.wahkee.fruitStore.repository.product.ProductRepository;
 public class ProductController {
 	
 	@Autowired
-	ProductRepository productRepository;
+	ProductService productService;
 	
 	@GetMapping("/")
 	public ResponseEntity<?> getAll() {
 		System.out.println("RECEIVE");
-		List<Product> products = productRepository.findAll();
+		List<Product> products = productService.findAll();
 	 
 		return ResponseEntity.ok(products);
 	}
