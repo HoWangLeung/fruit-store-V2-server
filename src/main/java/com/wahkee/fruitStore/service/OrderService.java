@@ -92,8 +92,7 @@ public class OrderService {
 				OrderItem orderItem = new OrderItem(e.getQuantity(), e.getPrice(), new Date(), product);
 				orderItem.setOrder(newOrder);
 				orderItem.setProduct(product);
-				System.out.println("WHIT IS THIS PRODUCT = " + orderItem.getProduct().getName() );
-//				System.out.println();
+ 
 				orderItems.add(orderItem); 
 			});
 			newOrder.setOrderItems(orderItems);

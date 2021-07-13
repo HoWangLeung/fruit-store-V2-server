@@ -1,15 +1,23 @@
 package com.wahkee.fruitStore.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wahkee.fruitStore.models.product.Product;
+import com.wahkee.fruitStore.service.product.ProductService;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
+	
+	@Autowired
+	ProductService productService;
+	
 	@GetMapping("/all")
 	public String allAccess() {
 		return "Public Content.";
@@ -32,4 +40,19 @@ public class TestController {
 	public String adminAccess() {
 		return "Admin Board.";
 	}
+	
+	@GetMapping("/save")
+	public String save() {
+		
+		productService.save();
+		
+		return "TEST SAVE VIEW";
+	}
+	
+	@GetMapping("/view")
+ 
+	public  Product view () {
+		return productService.getAll();
+	}
+	
 }

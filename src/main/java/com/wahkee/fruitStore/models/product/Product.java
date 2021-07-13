@@ -1,23 +1,21 @@
 package com.wahkee.fruitStore.models.product;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.MapKey;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
-import com.wahkee.fruitStore.models.Role;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(	name = "products")
@@ -25,29 +23,28 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String category;
 	private int price;
-	private String country;
 	private String img;
-	private String unit;
+
+	@OneToMany(mappedBy = "product", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, orphanRemoval = true)
+	@MapKey(name = "localizedId.locale")
+	@Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
+	private Map<String, LocalizedProduct> localizations = new HashMap<>();
 	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 
-	public Product(String name, String category, int price, String country, String img, String unit) {
-		this.name = name;
+	public Product(Long id, int price, String img, Map<String, LocalizedProduct> localizations) {
+		super();
+		this.id = id;
 		this.price = price;
-		this.category = category;
-		this.country = country;
 		this.img = img;
-		this.unit = unit;
+		this.localizations = localizations;
 	}
-
-
 
 
 
@@ -59,39 +56,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	
-	public String getCategory() {
-		return category;
-	}
-
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-
 	public int getPrice() {
 		return price;
 	}
 
 	public void setPrice(int price) {
 		this.price = price;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String getImg() {
@@ -101,18 +71,19 @@ public class Product {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
-	public String getUnit() {
-		return unit;
+	@JsonManagedReference
+	public Map<String, LocalizedProduct> getLocalizations() {
+		return localizations;
 	}
 
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setLocalizations(Map<String, LocalizedProduct> localizations) {
+		this.localizations = localizations;
 	}
 	
-	
-	
-
+	 public String getName(String locale) {
+	        return localizations.get(locale).getName();
+	    }
+	 
  
 
  
