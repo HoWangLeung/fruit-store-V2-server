@@ -22,7 +22,7 @@ INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.
 INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
 INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
 INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
-
+SET FOREIGN_KEY_CHECKS=0
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'en','Mandarin','Japan','Karatsu mandarin',NULL);
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'zh','柑','日本','唐津柑',NULL);
 
@@ -73,7 +73,7 @@ INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (16,'
 
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (17,'en','persimmon','New Zeland','New Zeland permission',NULL);
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (17,'zh','蘋果','美國','富士蘋果10',NULL);
-
+SET FOREIGN_KEY_CHECKS=1
 
 
 --INSERT INTO products(category,country,name,img,price,unit) VALUES ('柑','日本','唐津柑','/static/media/mandarin_1.e041c4b7.jpeg',250,'盒');
