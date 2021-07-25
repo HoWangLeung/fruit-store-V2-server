@@ -5,18 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import com.wahkee.fruitStore.security.services.UserDetailsImpl;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.wahkee.fruitStore.models.User;
 import com.wahkee.fruitStore.models.order.EOrderStatus;
 import com.wahkee.fruitStore.models.order.Order;
 import com.wahkee.fruitStore.payload.request.order.OrderRequest;
+import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.repository.order.OrderRepository;
-import com.wahkee.fruitStore.security.services.UserDetailsImpl;
 import com.wahkee.fruitStore.service.OrderService;
 
 @CrossOrigin(origins = "*")
@@ -28,6 +29,9 @@ public class OrderController {
 	OrderService orderService;
 	@Autowired
 	OrderRepository orderRepository;
+	
+	@Autowired
+	UserRepository userRepository;
 	
 	@GetMapping("/")
 	public ResponseEntity<?> getAllOrders() {
@@ -48,8 +52,16 @@ public class OrderController {
 	@PostMapping("/add")
 	public ResponseEntity<?> addNewOrder(@RequestBody OrderRequest orderRequest) {
 		
+		System.out.println("ADDING ORDER");
+		UserDetailsImpl userDetail = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		System.out.println("USER IS ?");
+		System.out.println("userDetail = " + userDetail.getEmail());
+		
+		User user = userRepository.findByEmail(userDetail.getEmail())
+			.orElseThrow(() -> new RuntimeException("Error: User is not found !"));
+		
 		System.out.println("ADD ORDER " + orderRequest.getOrderItems().toString());
-		 orderService.addOrder(orderRequest);
+		 orderService.addOrder(user,orderRequest);
 		 
 		return ResponseEntity.ok("SUCCESS");
 	}

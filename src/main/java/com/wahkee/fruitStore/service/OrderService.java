@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.wahkee.fruitStore.models.User;
@@ -18,6 +18,7 @@ import com.wahkee.fruitStore.models.product.Product;
 import com.wahkee.fruitStore.payload.request.order.OrderRequest;
 import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.repository.order.OrderRepository;
+import com.wahkee.fruitStore.security.services.UserDetailsImpl;
 
 @Service
 public class OrderService {
@@ -46,10 +47,9 @@ public class OrderService {
 		return orderList;
 	}
 
-	public void addOrder(OrderRequest orderRequest) {
+	public void addOrder(User user, OrderRequest orderRequest) {
 		sum = 0;
- 	User user = userRepository.findByEmail("hkz88i00123@gmail.com")
- 			.orElseThrow(() -> new UsernameNotFoundException("User Not Found with email:  =>>>>>" ));
+
  			
  			
 		List<Order> existingPendingOrder = orderRepository.findAllByUserIdAndStatus(user.getId(), EOrderStatus.PENDING);
