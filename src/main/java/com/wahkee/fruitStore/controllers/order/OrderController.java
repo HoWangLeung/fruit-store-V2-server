@@ -52,7 +52,7 @@ public class OrderController {
 	@PostMapping("/add")
 	public ResponseEntity<?> addNewOrder(@RequestBody OrderRequest orderRequest) {
 		
-		System.out.println("ADDING ORDER");
+		System.out.println("ADDING ORDER !");
 		UserDetailsImpl userDetail = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		System.out.println("USER IS ?");
 		System.out.println("userDetail = " + userDetail.getEmail());
