@@ -42,7 +42,7 @@ INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (35,'
 
 
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (45,'en','persimmon','New Zeland','New Zeland permission',NULL);
-INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (345,'zh','牛油果','澳洲','澳洲牛油果4個',NULL);
+INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (45,'zh','牛油果','澳洲','澳洲牛油果4個',NULL);
 
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (55,'en','persimmon','New Zeland','New Zeland permission',NULL);
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (55,'zh','桃','美國','美國扁桃',NULL);
@@ -84,57 +84,58 @@ INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (175,
 INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (175,'zh','蘋果','美國','富士蘋果10',NULL);
 SET foreign_key_checks = 1;
 
---SET foreign_key_checks = 0;
-
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'en','Mandarin','Japan','Karatsu mandarin',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'zh','柑','日本','唐津柑',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'en','peach','Japan','Japan Peach',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (1,'zh','桃','日本','一宮桃-黑盒',NULL);
 --
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (2,'en','Grape','Japan','Bubble grape',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (2,'zh','提子','日本','日本巨峰波波提',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (2,'en','persimmon','New Zeland','New Zeland permission',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (2,'zh','柿','紐西蘭','紐西蘭柿 (一箱 15裝)',NULL);
 --
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (3,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (3,'zh','柿','紐西蘭','紐西蘭柿 (一箱 15裝)',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (3,'en','Mandarin','Japan','Karatsu mandarin',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (3,'zh','柑','日本','唐津柑',NULL);
 --
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (4,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (4,'zh','牛油果','澳洲','澳洲牛油果4個',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (4,'en','Grape','Japan','Bubble grape',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (4,'zh','提子','日本','日本巨峰波波提',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (5,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (5,'zh','桃','美國','美國扁桃',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (5,'zh','牛油果','澳洲','澳洲牛油果4個',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (6,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (6,'zh','橙','美國','美國黑牌橙',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (6,'zh','桃','美國','美國扁桃',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (7,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (7,'zh','提子','日本','晴王',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (7,'zh','橙','美國','美國黑牌橙',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (8,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (8,'zh','密瓜','日本','靜岡密瓜',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (8,'zh','提子','日本','晴王',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (9,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (9,'zh','密瓜','日本','北海道夕張瓜',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (9,'zh','密瓜','日本','靜岡密瓜',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (10,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (10,'zh','提子','日本','富士蘋果3',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (10,'zh','密瓜','日本','北海道夕張瓜',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (11,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (11,'zh','提子','英國','富士蘋果4',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (11,'zh','提子','日本','富士蘋果3',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (12,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (12,'zh','蘋果','日本','富士蘋果5',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (12,'zh','提子','英國','富士蘋果4',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (13,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (13,'zh','蘋果','美國','富士蘋果6',NULL);
--- 
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (14,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (14,'zh','蘋果','英國','富士蘋果7',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (13,'zh','蘋果','日本','富士蘋果5',NULL);
 --
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (14,'en','persimmon','New Zeland','New Zeland permission',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (14,'zh','蘋果','美國','富士蘋果6',NULL);
+-- 
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (15,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (15,'zh','蘋果','美國','富士蘋果8',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (15,'zh','蘋果','英國','富士蘋果7',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (16,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (16,'zh','蘋果','日本','富士蘋果9',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (16,'zh','蘋果','美國','富士蘋果8',NULL);
 --
 --INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (17,'en','persimmon','New Zeland','New Zeland permission',NULL);
---INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (17,'zh','蘋果','美國','富士蘋果10',NULL);
---SET foreign_key_checks = 1;
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (17,'zh','蘋果','日本','富士蘋果9',NULL);
+--
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (18,'en','persimmon','New Zeland','New Zeland permission',NULL);
+--INSERT INTO localized_product(id,locale,category,country,name,unit) VALUES (18,'zh','蘋果','美國','富士蘋果10',NULL);
+
 
