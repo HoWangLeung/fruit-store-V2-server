@@ -29,7 +29,7 @@ public class EmailConsumer {
         
         String token = UUID.randomUUID().toString();
         userService.createVerificationToken(user, token);
-        String recipientAddress = "hkz88i00123@gmail.com";
+        String recipientAddress = user.getEmail();
         String subject = "Registration Confirmation";
         String confirmationUrl 
         = baseUrl + "/api/auth/regitrationConfirm?token=" + token;
