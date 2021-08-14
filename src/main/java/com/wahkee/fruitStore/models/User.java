@@ -2,7 +2,10 @@ package com.wahkee.fruitStore.models;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,10 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.wahkee.fruitStore.models.user.AuthProvider;
 
 @Entity
 @Table(	name = "users" 
@@ -32,7 +37,6 @@ public class User {
 //	@Size(max = 20)
 	private String username;
 
-	@NotBlank
 	@Size(max = 50)
 	@Email
 	private String email;
@@ -44,9 +48,15 @@ public class User {
 	
 
 
-	@NotBlank
+
 	@Size(max = 120)
 	private String password;
+	
+
+    @Enumerated(EnumType.STRING)
+	private AuthProvider provider;
+    
+    private String providerId;
 	
 	 
 	private boolean enabled;
@@ -70,7 +80,7 @@ public class User {
 		this.address=address;
 		this.password = password;
 		this.phone=phone;
-		
+		this.provider = provider;
 	}
 
 	public Long getId() {
@@ -139,12 +149,29 @@ public class User {
 	
 	
 
+	public String getProviderId() {
+		return providerId;
+	}
+
+	public void setProviderId(String providerId) {
+		this.providerId = providerId;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+
+	public AuthProvider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(AuthProvider provider) {
+		this.provider = provider;
 	}
 
 	public Set<Role> getRoles() {

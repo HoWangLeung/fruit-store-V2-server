@@ -16,6 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.wahkee.fruitStore.security.jwt.AuthEntryPointJwt;
 import com.wahkee.fruitStore.security.jwt.AuthTokenFilter;
 import com.wahkee.fruitStore.security.services.UserDetailsServiceImpl;
+import com.wahkee.fruitStore.security.social.CustomOAuth2UserService;
+import com.wahkee.fruitStore.security.social.CustomUserDetailsService;
+import com.wahkee.fruitStore.security.social.HttpCookieOAuth2AuthorizationRequestRepository;
+import com.wahkee.fruitStore.security.social.handler.OAuth2AuthenticationFailureHandler;
+import com.wahkee.fruitStore.security.social.handler.OAuth2AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +29,24 @@ import com.wahkee.fruitStore.security.services.UserDetailsServiceImpl;
 		// jsr250Enabled = true,
 		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	  @Autowired
+	    private CustomUserDetailsService customUserDetailsService;
+
+	    @Autowired
+	    private CustomOAuth2UserService customOAuth2UserService;
+
+	    @Autowired
+	    private OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
+
+	    @Autowired
+	    private OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
+	    
+	    @Autowired
+	    private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
+	    
+	    //===========================================
+	
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
@@ -50,7 +73,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	  @Bean
+	    public HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository() {
+	        return new HttpCookieOAuth2AuthorizationRequestRepository();
+	    }
+	  
+ 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
@@ -58,6 +86,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
 			.antMatchers(
+					"/",
 					"/api/products/",
 					"/api/test/**",
 					"/api/orders/",
@@ -67,8 +96,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					"/javainuse-rabbitmq/topic/**"
 					
 					).permitAll()
-			.anyRequest().authenticated();
+			.anyRequest().authenticated()
+	         .and()
+             .oauth2Login()
+                 .authorizationEndpoint()
+                     .baseUri("/oauth2/authorize")
+                     .authorizationRequestRepository(cookieAuthorizationRequestRepository())
+                     .and()
+                 .redirectionEndpoint()
+                     .baseUri("/oauth2/callback/*")
+                     .and()
+                 .userInfoEndpoint()
+                     .userService(customOAuth2UserService)
+                     .and()
+                 .successHandler(oAuth2AuthenticationSuccessHandler)
+                 .failureHandler(oAuth2AuthenticationFailureHandler);
+			
+	
+		
+		
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+		  
 	}
 }

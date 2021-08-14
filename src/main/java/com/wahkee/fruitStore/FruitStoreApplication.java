@@ -1,11 +1,13 @@
 package com.wahkee.fruitStore;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
+import com.wahkee.fruitStore.others.binding.AppProperties;
  
 @SpringBootApplication
+@EnableConfigurationProperties(AppProperties.class)
 public class FruitStoreApplication {
 
 	public static void main(String[] args) {

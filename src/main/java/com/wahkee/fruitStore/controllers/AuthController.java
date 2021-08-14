@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -41,6 +42,9 @@ import com.wahkee.fruitStore.repository.RoleRepository;
 import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.security.jwt.JwtUtils;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
+import com.wahkee.fruitStore.security.social.CurrentUser;
+import com.wahkee.fruitStore.security.social.UserPrincipal;
+import com.wahkee.fruitStore.security.social.exception.ResourceNotFoundException;
 import com.wahkee.fruitStore.service.email.EmailServiceImpl;
 import com.wahkee.fruitStore.service.user.UserService;
 
@@ -172,5 +176,16 @@ public class AuthController {
 	    redirectStrategy.sendRedirect(request, response, clientUrl);
 	    return "VERIFED";
 	}
+	
+	
+	//TEST API
+
+
+    @GetMapping("/user/me")
+    @PreAuthorize("hasRole('USER')")
+    public User getCurrentUser(@CurrentUser UserPrincipal userPrincipal) {
+        return userRepository.findById(userPrincipal.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", userPrincipal.getId()));
+    }
 	
 }
