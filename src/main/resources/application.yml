@@ -26,8 +26,8 @@ spring:
                 - email
                 - profile
             facebook:
-              clientId: 121189305185277
-              clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+              clientId: 863769964255034
+              clientSecret: 960465ffe4a9ef2033fa67aacc4e98ba
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}" # Note that facebook now mandates the use of https redirect URIs, so make sure your app supports https in production
               scope:
                 - email

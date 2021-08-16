@@ -35,10 +35,12 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 		try {
 			String jwt = parseJwt(request);
+			System.out.println("com.wahkee.fruitStore.security.jwt : doFilterInternal in ");
+			System.out.println("com.wahkee.fruitStore.security.jwt : doFilterInternal in jwt = " + jwt);
 			if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getUserNameFromJwtToken(jwt);
 				System.out.println("doFilterInternal: ");
-				System.out.println("doFilterInternal: " +  username);
+				System.out.println("doFilterInternal username from decoded jwtToken: " +  username);
 
 				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 				

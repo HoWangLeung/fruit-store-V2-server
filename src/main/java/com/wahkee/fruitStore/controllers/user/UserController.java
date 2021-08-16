@@ -24,7 +24,7 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 
-	@PreAuthorize("hasRole('USER')")
+	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("/profile")
 	public ResponseEntity<?> getUserProfile() {
 

@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+import com.wahkee.fruitStore.others.binding.AppProperties;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
+import com.wahkee.fruitStore.security.social.tokenProvider.TokenProvider;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -26,6 +28,14 @@ public class JwtUtils {
 
 	@Value("${derek.app.jwtExpirationMs}")
 	private int jwtExpirationMs;
+	
+	//NEW
+    private AppProperties appProperties;
+
+    public JwtUtils(AppProperties appProperties) {
+        this.appProperties = appProperties;
+    }
+	//NEW
 
 	public String generateJwtToken(Authentication authentication) {
 
@@ -35,20 +45,20 @@ public class JwtUtils {
 				.setSubject((userPrincipal.getEmail()))
 				.setIssuedAt(new Date())
 				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-				.signWith(SignatureAlgorithm.HS512, jwtSecret)
+				.signWith(SignatureAlgorithm.HS512, appProperties.getAuth().getTokenSecret())
 				.compact();
 	}
 
 	public String getUserNameFromJwtToken(String token) {
 		System.out.println("GET USER FROM JWT TOKEN : ");
-		System.out.println(Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody());
+		System.out.println(Jwts.parser().setSigningKey(appProperties.getAuth().getTokenSecret()).parseClaimsJws(token).getBody());
 		
-		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+		return Jwts.parser().setSigningKey(appProperties.getAuth().getTokenSecret()).parseClaimsJws(token).getBody().getSubject();
 	}
 
 	public boolean validateJwtToken(String authToken) {
 		try {
-			Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
+			Jwts.parser().setSigningKey(appProperties.getAuth().getTokenSecret()).parseClaimsJws(authToken);
 			return true;
 		} catch (SignatureException e) {
 			logger.error("Invalid JWT signature: {}", e.getMessage());
