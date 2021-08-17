@@ -15,7 +15,7 @@ public class HelloController {
 	@GetMapping("/")
 	public String sayHello(Principal principal) {
 
-		return "Hi welcome to SpringCloudOauth2ExampleApplication " ;
+		return "Hi a welcome to SpringCloudOauth2ExampleApplication " ;
 	}
 
 
