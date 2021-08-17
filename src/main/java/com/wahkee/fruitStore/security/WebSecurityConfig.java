@@ -55,6 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
+		System.out.println("in authenticationJwtTokenFilter: ");
+		
 		return new AuthTokenFilter();
 	}
 

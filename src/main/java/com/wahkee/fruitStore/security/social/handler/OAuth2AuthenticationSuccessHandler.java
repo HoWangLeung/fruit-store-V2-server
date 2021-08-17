@@ -80,19 +80,26 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     }
 
     private boolean isAuthorizedRedirectUri(String uri) {
+    	System.out.println("isAuthorizedRedirectUri");
         URI clientRedirectUri = URI.create(uri);
 
         return appProperties.getOauth2().getAuthorizedRedirectUris()
                 .stream()
                 .anyMatch(authorizedRedirectUri -> {
-                
+                	
                 	
                     // Only validate host and port. Let the clients use different paths if they want to
                     URI authorizedURI = URI.create(authorizedRedirectUri);
-                    
-                	System.out.println("authorizedURI.getHost() = " + authorizedRedirectUri);
-                 	System.out.println("clientRedirectUri.getHost()"  + clientRedirectUri.getHost());
-                	System.out.println("does authorizedURI vs  clientRedirectUri equal ? ");
+                	System.out.println("clientRedirectUri = "  + clientRedirectUri);
+                	System.out.println("authorizedURI = " + authorizedURI);
+                	
+                	System.out.println("=================================================================================");
+                	
+                 	System.out.println("authorizedURI.getHost() = "  + authorizedURI.getHost());
+                 	System.out.println("clientRedirectUri.getHost() = "  + clientRedirectUri.getHost());
+               
+                 	
+                	System.out.println("does authorizedURI svs  clientRedirectUri equal ? ");
                  	System.out.println( authorizedURI.getHost().equalsIgnoreCase(clientRedirectUri.getHost())
                             && authorizedURI.getPort() == clientRedirectUri.getPort());
                  	
