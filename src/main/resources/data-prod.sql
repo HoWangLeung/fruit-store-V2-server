@@ -1,11 +1,11 @@
 
 
---INSERT INTO users(email,enabled,password,username,provider) VALUES('hkz88i001231@gmail.com',1,'$2a$10$ideoxDhZo1MP9eW.A4UC0.4iPeDeCNM9yVMGQFpzTz04OZp9nxw5S','Derek','local');
+INSERT INTO users(email,enabled,password,username,provider) VALUES('hkz88i001231@gmail.com',1,'$2a$10$ideoxDhZo1MP9eW.A4UC0.4iPeDeCNM9yVMGQFpzTz04OZp9nxw5S','Derek','local');
 
 INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
---INSERT INTO user_roles(user_id,role_id)VALUES(1,1);
+INSERT INTO user_roles(user_id,role_id)VALUES(5,5);
 
 INSERT INTO products(img,price) VALUES ('/static/media/peach_1.6a8d8dfd.jpeg',800);
 INSERT INTO products(img,price) VALUES ('/static/media/persimmon_1.5edd8a44.jpeg',65);
