@@ -33,8 +33,10 @@ public class UserDetailsServiceImpl implements UserDetailsService,ApplicationLis
 	
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
+    	
+    	 
         System.out.println("onApplicationEvent: " );
-        System.out.println("onApplicationEvent: " +  event.getAuthentication().getPrincipal());
+        System.out.println( event.getAuthentication().getPrincipal().getClass().getPackageName().contains("social"));
     	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().getPrincipal());
   
         System.out.println("onApplicationEvent userDetail = : ");
