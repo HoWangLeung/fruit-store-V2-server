@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService,ApplicationLis
         System.out.println( event.getAuthentication().getPrincipal().getClass().getPackageName().contains("social"));
     	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().getPrincipal());
   
-        System.out.println("onApplicationEvent userDetail = : ");
+        System.out.println("onApplicationEvent userDetail == : ");
       
       
 		User user = userRepository.findByEmail(userDetail.getEmail())
