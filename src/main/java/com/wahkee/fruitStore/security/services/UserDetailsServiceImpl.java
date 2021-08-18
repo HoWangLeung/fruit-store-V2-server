@@ -4,6 +4,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +35,8 @@ public class UserDetailsServiceImpl implements UserDetailsService,ApplicationLis
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
         System.out.println("onApplicationEvent: ");
-    	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().getPrincipal());
+    	UserDetailsImpl userDetail = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
+				.getPrincipal());
   
         System.out.println("onApplicationEvent userDetail = : " + userDetail);
       
