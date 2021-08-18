@@ -33,10 +33,10 @@ public class UserDetailsServiceImpl implements UserDetailsService,ApplicationLis
 	
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
-    	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().
-                                              getPrincipal());
-      System.out.println("onApplicationEvent: ");
-   
+        System.out.println("onApplicationEvent: ");
+    	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().getPrincipal());
+  
+        System.out.println("onApplicationEvent userDetail = : " + userDetail);
       
       
 		User user = userRepository.findByEmail(userDetail.getEmail())
