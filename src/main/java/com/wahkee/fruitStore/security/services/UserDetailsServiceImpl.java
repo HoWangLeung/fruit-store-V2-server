@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService,ApplicationLis
     	
     	 
         System.out.println("onApplicationEvent: " );
-        System.out.println( event.getAuthentication().getPrincipal().getClass().getPackageName().contains("social"));
+        System.out.println(event.getAuthentication().getPrincipal().getClass().getPackageName().toString());
     	UserDetailsImpl userDetail = ((UserDetailsImpl) event.getAuthentication().getPrincipal());
   
         System.out.println("onApplicationEvent userDetail == : ");
