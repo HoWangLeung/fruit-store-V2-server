@@ -1,8 +1,10 @@
 package com.wahkee.fruitStore.models;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,19 +16,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.wahkee.fruitStore.models.user.AuthProvider;
 
 @Entity
-@Table(	name = "users" 
-//		uniqueConstraints = { 
-//			@UniqueConstraint(columnNames = "username"),
-//			@UniqueConstraint(columnNames = "email") 
-//		}
+@Table(name = "users"
+ 
 )
 public class User {
 	@Id
@@ -41,46 +42,46 @@ public class User {
 	@Email
 	private String email;
 	
+	//@JsonFormat(pattern="yyyy-MM-dd")
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false,columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP")
+	private Date createdDate;
+	
+	private Date lastLoginDate;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String phone;
-	
-
-
 
 	@Size(max = 120)
 	private String password;
-	
 
-    @Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private AuthProvider provider;
-    
-    private String providerId;
-	
-	 
+
+	private String providerId;
+
 	private boolean enabled;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(	name = "user_roles", 
-				joinColumns = @JoinColumn(name = "user_id"), 
-				inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
 	public User() {
 	}
 
 	public User(
-//			String username,
-			String email, String password) {
-//		this.username = username;
+
+		String email, String password) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address=address;
+		this.address = address;
 		this.password = password;
-		this.phone=phone;
+		this.phone = phone;
 		this.provider = provider;
+		 
 	}
 
 	public Long getId() {
@@ -106,6 +107,23 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
+	public Date getLastLoginDate() {
+		return lastLoginDate;
+	}
+
+	public void setLastLoginDate(Date lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -130,7 +148,7 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
- 
+
 	public String getPhone() {
 		return phone;
 	}
@@ -146,8 +164,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
 	public String getProviderId() {
 		return providerId;
@@ -164,7 +180,6 @@ public class User {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
 
 	public AuthProvider getProvider() {
 		return provider;

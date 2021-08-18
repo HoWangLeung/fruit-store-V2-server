@@ -42,6 +42,8 @@ public class UserController {
 		response.setLastName(updatedUser.getLastName());
 		response.setAddress(updatedUser.getAddress());
 		response.setPhone(updatedUser.getPhone());
+		response.setCreatedDate(updatedUser.getCreatedDate());
+		response.setLastLoginDate(updatedUser.getLastLoginDate());
 
 		return ResponseEntity.ok(response);
 	}
