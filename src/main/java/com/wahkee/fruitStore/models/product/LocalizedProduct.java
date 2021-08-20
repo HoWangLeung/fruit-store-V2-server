@@ -29,24 +29,32 @@ public class LocalizedProduct {
     
     private String category;
     
+    private String countryCode;
     private String country;
+   
     
     private String unit;
+    
+    private String description;
 
 	public LocalizedProduct() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public LocalizedProduct(LocalizedId localizedId, Product product, String name, String category, String country,
-			String unit) {
+	public LocalizedProduct(LocalizedId localizedId, Product product, String name, String category, 
+			String countryCode,
+			String country,
+			String unit, String description) {
 		super();
 		this.localizedId = localizedId;
 		this.product = product;
 		this.name = name;
 		this.category = category;
+		this.countryCode= countryCode;
 		this.country = country;
 		this.unit = unit;
+		this.description = description;
 	}
 
 	public LocalizedId getLocalizedId() {
@@ -81,6 +89,14 @@ public class LocalizedProduct {
 		this.category = category;
 	}
 
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
 	public String getCountry() {
 		return country;
 	}
@@ -95,6 +111,14 @@ public class LocalizedProduct {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
  
  
