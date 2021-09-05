@@ -21,6 +21,12 @@ public class RabbitMQTopicConfig {
 	Queue marketingQueue() {
 		return new Queue("registrationQueue", false);
 	}
+	
+	@Bean
+	Queue portfolioQueue() {
+		return new Queue("portfolioQueue", false);
+	}
+
 
 	@Bean
 	Queue financeQueue() {
@@ -55,6 +61,11 @@ public class RabbitMQTopicConfig {
 	@Bean
 	Binding adminBinding(Queue adminQueue, TopicExchange topicExchange) {
 		return BindingBuilder.bind(adminQueue).to(topicExchange).with("queue.admin");
+	}
+	
+	@Bean
+	Binding portfolioBinding(Queue portfolioQueue, TopicExchange topicExchange) {
+		return BindingBuilder.bind(portfolioQueue).to(topicExchange).with("queue.portfolio");
 	}
 	
 	@Bean

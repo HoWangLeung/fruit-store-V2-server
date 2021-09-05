@@ -99,7 +99,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					"/api/orders/add",
 					"/api/orders/order",
 					"/api/payment/charge",
-					"/javainuse-rabbitmq/topic/**"
+					"/javainuse-rabbitmq/topic/**",
+					"/api/user/portfolio/**"
 					
 					).permitAll()
 			.anyRequest().authenticated()

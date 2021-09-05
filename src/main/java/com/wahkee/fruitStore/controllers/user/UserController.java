@@ -6,15 +6,19 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wahkee.fruitStore.models.User;
+import com.wahkee.fruitStore.payload.request.others.PortfolioContact;
 import com.wahkee.fruitStore.payload.response.UserProfileResponse;
 import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
+import com.wahkee.fruitStore.service.email.EmailServiceImpl;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -23,6 +27,9 @@ public class UserController {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	EmailServiceImpl emailServiceImpl;
 
 	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("/profile")
@@ -79,4 +86,15 @@ public class UserController {
 
 		return ResponseEntity.ok(response);
 	}
+	
+	
+	@PostMapping("/portfolio/contact")
+	public ResponseEntity<?> sendPortfolioEmail(@RequestBody PortfolioContact portfolioContact,@RequestParam("exchangeName") String exchange, @RequestParam("routingKey") String routingKey) {
+		System.out.println("send portfolio email controller");
+		
+		emailServiceImpl.portfolioSendMail(exchange, routingKey, portfolioContact);
+		
+		return ResponseEntity.ok("success");
+	}
+	
 }

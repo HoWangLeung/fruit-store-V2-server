@@ -6,6 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.wahkee.fruitStore.models.User;
+import com.wahkee.fruitStore.payload.request.others.PortfolioContact;
 
 @Service
 public class EmailServiceImpl {
@@ -19,13 +20,14 @@ public class EmailServiceImpl {
     	System.out.println("sending to queue");
     	amqpTemplate.convertAndSend(exchange, routingKey, user);
 
-//        SimpleMailMessage msg = new SimpleMailMessage();
-//        msg.setTo("hkz88i00123@gmail.com");
-//
-//        msg.setSubject("Testing from Spring Boot");
-//        msg.setText("Hello World \n Spring Boot Email");
-//System.out.println("sending email");
-//        javaMailSender.send(msg);
+    }
+    
+  public void portfolioSendMail(String exchange, String routingKey, PortfolioContact portfolioContact) {
+    	
+    	System.out.println("portfolioSendMail sending to queue " + portfolioContact.getTitle());
+    	amqpTemplate.convertAndSend(exchange, routingKey, portfolioContact);
 
     }
+    
+    
 }
