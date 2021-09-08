@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-09-07T13:13:57 HKT" name="Default suite" finished-at="2021-09-07T13:14:08 HKT" duration-ms="11456">
+    <groups>
+    </groups>
+    <test started-at="2021-09-07T13:13:57 HKT" name="Default test" finished-at="2021-09-07T13:14:08 HKT" duration-ms="11456">
+      <class name="com.wahkee.fruitStore.page.GoogleTest">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:13:57 HKT" name="springTestContextBeforeTestClass" finished-at="2021-09-07T13:13:57 HKT" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:13:57 HKT" name="springTestContextPrepareTestInstance" finished-at="2021-09-07T13:14:06 HKT" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="9870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:14:06 HKT" name="springTestContextBeforeTestMethod" finished-at="2021-09-07T13:14:06 HKT" duration-ms="5" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.wahkee.fruitStore.page.GoogleTest.googleTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="googleTest()[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:14:06 HKT" name="googleTest" finished-at="2021-09-07T13:14:08 HKT" duration-ms="1525" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:14:08 HKT" name="springTestContextAfterTestMethod" finished-at="2021-09-07T13:14:08 HKT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.wahkee.fruitStore.page.GoogleTest.googleTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:com.wahkee.fruitStore.page.GoogleTest@2e11485]" started-at="2021-09-07T13:14:08 HKT" name="springTestContextAfterTestClass" finished-at="2021-09-07T13:14:08 HKT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.wahkee.fruitStore.page.GoogleTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
