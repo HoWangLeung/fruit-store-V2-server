@@ -48,7 +48,7 @@ import com.wahkee.fruitStore.security.services.UserDetailsImpl;
 import com.wahkee.fruitStore.security.social.CurrentUser;
 import com.wahkee.fruitStore.security.social.UserPrincipal;
 import com.wahkee.fruitStore.security.social.exception.ResourceNotFoundException;
-import com.wahkee.fruitStore.service.email.EmailServiceImpl;
+//import com.wahkee.fruitStore.service.email.EmailServiceImpl;
 import com.wahkee.fruitStore.service.user.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -70,8 +70,8 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
-	@Autowired
-	EmailServiceImpl emailServiceImpl;
+//	@Autowired
+//	EmailServiceImpl emailServiceImpl;
 
 	@Autowired
 	UserService userService;

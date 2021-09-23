@@ -18,7 +18,7 @@ import com.wahkee.fruitStore.payload.request.others.PortfolioContact;
 import com.wahkee.fruitStore.payload.response.UserProfileResponse;
 import com.wahkee.fruitStore.repository.UserRepository;
 import com.wahkee.fruitStore.security.services.UserDetailsImpl;
-import com.wahkee.fruitStore.service.email.EmailServiceImpl;
+//import com.wahkee.fruitStore.service.email.EmailServiceImpl;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -28,8 +28,8 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@Autowired
-	EmailServiceImpl emailServiceImpl;
+//	@Autowired
+//	EmailServiceImpl emailServiceImpl;
 
 	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("/profile")
@@ -88,13 +88,13 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("/portfolio/contact")
-	public ResponseEntity<?> sendPortfolioEmail(@RequestBody PortfolioContact portfolioContact,@RequestParam("exchangeName") String exchange, @RequestParam("routingKey") String routingKey) {
-		System.out.println("send portfolio email controller");
-		
-		emailServiceImpl.portfolioSendMail(exchange, routingKey, portfolioContact);
-		
-		return ResponseEntity.ok("success");
-	}
+//	@PostMapping("/portfolio/contact")
+//	public ResponseEntity<?> sendPortfolioEmail(@RequestBody PortfolioContact portfolioContact,@RequestParam("exchangeName") String exchange, @RequestParam("routingKey") String routingKey) {
+//		System.out.println("send portfolio email controller");
+//		
+//		emailServiceImpl.portfolioSendMail(exchange, routingKey, portfolioContact);
+//		
+//		return ResponseEntity.ok("success");
+//	}
 	
 }
