@@ -145,7 +145,7 @@ public class AuthController {
 
 		user.setRoles(roles);
 		userRepository.save(user);
-		emailServiceImpl.sendEmail(exchange, routingKey, user);
+		//emailServiceImpl.sendEmail(exchange, routingKey, user);
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
