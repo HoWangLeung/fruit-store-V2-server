@@ -17,7 +17,9 @@ INSERT INTO products(img,price) VALUES ('orange_1.jpeg',30);
 INSERT INTO products(img,price) VALUES ('grape_2.jpeg',300);
 INSERT INTO products(img,price) VALUES ('melon_1.jpeg',300);
 INSERT INTO products(img,price) VALUES ('melon_2.jpeg',230);
-INSERT INTO products(img,price) VALUES ('apple_1.jpg',230);
+INSERT INTO products(img,price) VALUES ('apple_1.jpeg',230);
+INSERT INTO products(img,price) VALUES ('apple_2.jpeg',130);
+INSERT INTO products(img,price) VALUES ('apple_3.jpeg',130);
 
 
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (1,'en','Peach','JP','Japan','Yamanashi Premium Peach',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
@@ -53,5 +55,9 @@ INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (11,'en','Apple','JP','Japan','Apple One',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (11,'zh','蘋果','JP','日本','北海道蘋果',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
 
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (12,'en','Apple','UK','United Kingdom','Apple Two',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (12,'zh','蘋果','UK','英國','蘋果二',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
 
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (13,'en','Apple','UK','United Kingdom','Apple Three',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (13,'zh','蘋果','UK','英國','蘋果3',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
 
