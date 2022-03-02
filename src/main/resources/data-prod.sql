@@ -7,16 +7,17 @@ INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 INSERT INTO user_roles(user_id,role_id)VALUES(5,5);
 
-INSERT INTO products(img,price) VALUES ('/static/media/peach_1.6a8d8dfd.jpeg',800);
-INSERT INTO products(img,price) VALUES ('/static/media/persimmon_1.5edd8a44.jpeg',65);
-INSERT INTO products(img,price) VALUES ('/static/media/mandarin_1.e041c4b7.jpeg',250);
-INSERT INTO products(img,price) VALUES ('/static/media/grape_1.28df8847.jpeg',30);
-INSERT INTO products(img,price) VALUES ('/static/media/avocado_1.309f9ec5.jpeg',100);
-INSERT INTO products(img,price) VALUES ('/static/media/peach_2.7ed4b8c5.jpeg',30);
-INSERT INTO products(img,price) VALUES ('/static/media/orange_1.8dd1c1d2.jpeg',30);
-INSERT INTO products(img,price) VALUES ('/static/media/grape_2.14a4f239.jpeg',300);
-INSERT INTO products(img,price) VALUES ('/static/media/melon_1.bbfcc82c.jpeg',300);
-INSERT INTO products(img,price) VALUES ('/static/media/melon_2.5b86e6f7.jpeg',230);
+INSERT INTO products(img,price) VALUES ('peach_1.jpeg',800);
+INSERT INTO products(img,price) VALUES ('persimmon_1.jpeg',65);
+INSERT INTO products(img,price) VALUES ('mandarin_1.jpeg',250);
+INSERT INTO products(img,price) VALUES ('grape_1.jpeg',30);
+INSERT INTO products(img,price) VALUES ('avocado_1.jpeg',100);
+INSERT INTO products(img,price) VALUES ('peach_2.jpeg',30);
+INSERT INTO products(img,price) VALUES ('orange_1.jpeg',30);
+INSERT INTO products(img,price) VALUES ('grape_2.jpeg',300);
+INSERT INTO products(img,price) VALUES ('melon_1.jpeg',300);
+INSERT INTO products(img,price) VALUES ('melon_2.jpeg',230);
+INSERT INTO products(img,price) VALUES ('apple_1.jpg',230);
 --INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
 --INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
 --INSERT INTO products(img,price) VALUES ('https://i.picsum.photos/id/338/300/300.jpg?hmac=D7ns1CjRcuNBZ6oG9QkSE1XC5pI8viTJ51zlLrmFpQI',30);
@@ -57,6 +58,9 @@ INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,
 
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'en','Melon','JP','Japan','The Yubari King',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'zh','密瓜','JP','日本','北海道夕張瓜',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
+ 
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'en','Apple','JP','Japan','Apple One',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'zh','蘋果','JP','日本','北海道蘋果',NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.');
  
 SET foreign_key_checks = 1;
 

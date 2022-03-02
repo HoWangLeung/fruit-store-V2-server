@@ -34,14 +34,18 @@ public class UserController {
 	//@PreAuthorize("hasRole('USER')")
 	@GetMapping("/profile")
 	public ResponseEntity<?> getUserProfile() {
+		
+	//	System.out.println("updating profile ======================================================================= ");
 
 		UserDetailsImpl userDetail = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal());
 
- 
+		
 		
 		User updatedUser = userRepository.findByUsername(userDetail.getUsername())
 				.orElseThrow(() -> new RuntimeException("Error: User is not found !"));
+		
+		
 		
 		UserProfileResponse response = new UserProfileResponse();
 		response.setEmail(userDetail.getEmail());
@@ -51,15 +55,17 @@ public class UserController {
 		response.setPhone(updatedUser.getPhone());
 		response.setCreatedDate(updatedUser.getCreatedDate());
 		response.setLastLoginDate(updatedUser.getLastLoginDate());
+		
+		System.out.println(response);
 
 		return ResponseEntity.ok(response);
 	}
 
-	@PreAuthorize("hasRole('USER')")
+	@PreAuthorize("hasAnyRole('USER','ROLE_ADMIN')")
 	@PutMapping("/profile/update")
 	public ResponseEntity<?> updateUserProfile(@RequestBody User userInfo ) {
 		
-		System.out.println("info " + userInfo.getAddress());
+		System.out.println("info ===============> " + userInfo.getFirstName());
 
 		UserDetailsImpl userDetail = ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal());
