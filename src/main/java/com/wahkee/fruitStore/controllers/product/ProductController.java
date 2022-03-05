@@ -42,6 +42,8 @@ public class ProductController {
 	@PostMapping("/add")
 	public ResponseEntity<?> addNewProduct(@RequestBody NewProductRequest newProductRequest) {
 		
+		 System.out.println("received request");
+		 
 		 Map<String, LocalizedProduct> request_localization = newProductRequest.getLocalizations();
 		 
 		 Product newProduct = new Product();
@@ -49,14 +51,16 @@ public class ProductController {
 		 newProduct.setPrice(newProductRequest.getPrice());
 		 newProduct.setImg(newProductRequest.getImg());
 		 
-		 System.out.println(request_localization.get("en").getCountry());
+		 System.out.println(request_localization.get("en").getCountry() + " "+ request_localization  ); 
 
-
+ 
 		 
-		 newProduct.setLocalizations(request_localization);
+		 newProduct.setLocalizations(request_localization); 
 		 newProduct.getLocalizations().get("en").setProduct(newProduct);
 		 newProduct.getLocalizations().get("zh").setProduct(newProduct);
 		 
+		 
+		 System.out.println(newProduct.getPrice()); 
 		 productRepository.save(newProduct);
 	 
 		return ResponseEntity.ok("ddd");
