@@ -61,101 +61,101 @@ Set @dummy='Lorem Ipsum is simply dummy text of the printing and typesetting ind
  
 SET foreign_key_checks = 0;
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (5,'en','Peach','JP','Japan','Yamanashi Premium Peach',NULL,);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (5,'zh','桃','JP','日本','一宮桃-黑盒',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (5,'en','Peach','JP','Japan','Yamanashi Premium Peach',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (5,'zh','桃','JP','日本','一宮桃-黑盒',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (15,'en','Persimmon','NZ','New Zeland','New Zeland persimmon',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (15,'zh','柿','NZ','紐西蘭','紐西蘭柿 (一箱 15裝)',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (15,'en','Persimmon','NZ','New Zeland','New Zeland persimmon',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (15,'zh','柿','NZ','紐西蘭','紐西蘭柿 (一箱 15裝)',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (25,'en','Mandarin','JP','Japan','Karatsu mandarin',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (25,'zh','柑','JP','日本','唐津柑',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (25,'en','Mandarin','JP','Japan','Karatsu mandarin',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (25,'zh','柑','JP','日本','唐津柑',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (35,'en','Grapes','JP','Japan','Kyoho grapes Jelly',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (35,'zh','提子','JP','日本','日本巨峰波波提',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (35,'en','Grapes','JP','Japan','Kyoho grapes Jelly',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (35,'zh','提子','JP','日本','日本巨峰波波提',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (45,'en','Avocado','AU','Australia','Australia avocado',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (45,'zh','牛油果','AU','澳洲','澳洲牛油果4個',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (45,'en','Avocado','AU','Australia','Australia avocado',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (45,'zh','牛油果','AU','澳洲','澳洲牛油果4個',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (55,'en','Peach','US','United States','America Donut Peach',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (55,'zh','桃','US','美國','美國扁桃',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (55,'en','Peach','US','United States','America Donut Peach',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (55,'zh','桃','US','美國','美國扁桃',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (65,'en','Orange','US','United States','PureSpect Orange',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (65,'zh','橙','US','美國','美國黑牌橙',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (65,'en','Orange','US','United States','PureSpect Orange',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (65,'zh','橙','US','美國','美國黑牌橙',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (75,'en','Grapes','JP','Japan','Shine Muscat',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (75,'zh','提子','JP','日本','晴王',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (75,'en','Grapes','JP','Japan','Shine Muscat',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (75,'zh','提子','JP','日本','晴王',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (85,'en','Melon','JP','Japan','Shizuoka Melon',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (85,'zh','密瓜','JP','日本','靜岡密瓜',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (85,'en','Melon','JP','Japan','Shizuoka Melon',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (85,'zh','密瓜','JP','日本','靜岡密瓜',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'en','Melon','JP','Japan','The Yubari King',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'zh','密瓜','JP','日本','北海道夕張瓜',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'en','Melon','JP','Japan','The Yubari King',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (95,'zh','密瓜','JP','日本','北海道夕張瓜',NULL,@dummy);
  
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'en','Apple','JP','Japan','Apple One',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'zh','蘋果','JP','日本','北海道蘋果',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'en','Apple','JP','Japan','Apple One',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (105,'zh','蘋果','JP','日本','北海道蘋果',NULL,@dummy);
  
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (115,'en','Apple','UK','United Kingdom','Apple Two',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (115,'zh','蘋果','UK','英國','蘋果二',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (115,'en','Apple','UK','United Kingdom','Apple Two',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (115,'zh','蘋果','UK','英國','蘋果二',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (125,'en','Apple','UK','United Kingdom','Apple Three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (125,'zh','蘋果','UK','英國','蘋果3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (125,'en','Apple','UK','United Kingdom','Apple Three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (125,'zh','蘋果','UK','英國','蘋果3',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (135,'en','Apple','UK','United Kingdom','Apple Four',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (135,'zh','蘋果','UK','英國','蘋果4',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (135,'en','Apple','UK','United Kingdom','Apple Four',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (135,'zh','蘋果','UK','英國','蘋果4',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (145,'en','Apple','UK','United Kingdom','Apple Five',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (145,'zh','蘋果','UK','英國','蘋果5',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (145,'en','Apple','UK','United Kingdom','Apple Five',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (145,'zh','蘋果','UK','英國','蘋果5',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (155,'en','Apple','AU','Australia','Apple Six',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (155,'zh','蘋果','AU','澳洲','蘋果6',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (155,'en','Apple','AU','Australia','Apple Six',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (155,'zh','蘋果','AU','澳洲','蘋果6',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (165,'en','Avocado','AU','Australia','Avocado Two',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (165,'zh','牛油果','AU','澳洲','牛油果2',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (165,'en','Avocado','AU','Australia','Avocado Two',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (165,'zh','牛油果','AU','澳洲','牛油果2',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (175,'en','Avocado','AU','Australia','Avocado Three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (175,'zh','牛油果','AU','澳洲','牛油果3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (175,'en','Avocado','AU','Australia','Avocado Three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (175,'zh','牛油果','AU','澳洲','牛油果3',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (185,'en','Avocado','AU','Australia','Avocado Four',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (185,'zh','牛油果','AU','澳洲','牛油果4',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (185,'en','Avocado','AU','Australia','Avocado Four',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (185,'zh','牛油果','AU','澳洲','牛油果4',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (195,'en','Grapes','AU','Australia','Grapes 3',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (195,'zh','提子','AU','澳洲','提子3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (195,'en','Grapes','AU','Australia','Grapes 3',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (195,'zh','提子','AU','澳洲','提子3',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (205,'en','Grapes','AU','Australia','Grapes 4',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (205,'zh','提子','AU','澳洲','提子4',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (205,'en','Grapes','AU','Australia','Grapes 4',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (205,'zh','提子','AU','澳洲','提子4',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (215,'en','Grapes','AU','Australia','Grapes 5',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (215,'zh','提子','AU','澳洲','提子5',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (215,'en','Grapes','AU','Australia','Grapes 5',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (215,'zh','提子','AU','澳洲','提子5',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (225,'en','Orange','US','United States','Orange 2',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (225,'zh','橙','US','美國','橙2',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (225,'en','Orange','US','United States','Orange 2',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (225,'zh','橙','US','美國','橙2',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (235,'en','Orange','US','United States','Orange 3',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (235,'zh','橙','US','美國','橙3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (235,'en','Orange','US','United States','Orange 3',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (235,'zh','橙','US','美國','橙3',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (245,'en','Orange','US','United States','Orange 4',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (245,'zh','橙','US','美國','橙4',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (245,'en','Orange','US','United States','Orange 4',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (245,'zh','橙','US','美國','橙4',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (255,'en','Mandarin','JP','Japan','Karatsu mandarin one',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (255,'zh','柑','JP','日本','唐津柑2',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (255,'en','Mandarin','JP','Japan','Karatsu mandarin one',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (255,'zh','柑','JP','日本','唐津柑2',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (265,'en','Mandarin','JP','Japan','Karatsu mandarin two',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (265,'zh','柑','JP','日本','唐津柑3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (265,'en','Mandarin','JP','Japan','Karatsu mandarin two',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (265,'zh','柑','JP','日本','唐津柑3',NULL,@dummy);
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (275,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (275,'zh','柑','JP','日本','唐津柑4',NULL,@gmail.comdummy);
-
-
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (285,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (285,'zh','密瓜','JP','日本','密瓜3',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (275,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (275,'zh','柑','JP','日本','唐津柑4',NULL,@dummy);
 
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (295,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (295,'zh','密瓜','JP','日本','密瓜4',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (285,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (285,'zh','密瓜','JP','日本','密瓜3',NULL,@dummy);
 
 
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (305,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@gmail.comdummy);
-INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (305,'zh','密瓜','JP','日本','密瓜5',NULL,@gmail.comdummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (295,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (295,'zh','密瓜','JP','日本','密瓜4',NULL,@dummy);
+
+
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (305,'en','Mandarin','JP','Japan','Karatsu mandarin three',NULL,@dummy);
+INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (305,'zh','密瓜','JP','日本','密瓜5',NULL,@dummy);
 
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (315,'en','Grapes','US','United States','Grape 6',NULL,@dummy);
 INSERT INTO localized_product(id,locale,category,country_code,country,name,unit,description) VALUES (315,'zh','提子','US','美國','提子6',NULL,@dummy);
